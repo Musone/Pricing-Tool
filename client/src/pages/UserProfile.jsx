@@ -7,7 +7,8 @@ import MultiSelector from "../components/MultiSelector";
 import { Link, useParams } from "react-router-dom";
 import useHttpRequest from "../hooks/HttpRequestObjectType";
 import { Spinner } from "../components/Spinner";
-
+import SingleSelector from "../components/SingleSelector";
+import AddCounselor from "./AddCounselor";
 const { useState } = React;
 
 export default function UserProfile() {
@@ -214,8 +215,26 @@ export default function UserProfile() {
           ) : (
             ""
           )}
+          <div className="container  border-top">
+            <br />
+          </div>
         </Form>
+        {userInfo.role == "Counselor" || userInfo.role ==  "Admin" ? (
+          <Fragment>
+            <div className="container  border-bottom">
+              <h1>{userKey}'s Counselor Profile</h1>
+            </div>
+            <AddCounselor />
+          </Fragment>
+        ) : (
+          ""
+        )
+        }
+
+
+
       </div>
+
     );
   } else {
     return null;

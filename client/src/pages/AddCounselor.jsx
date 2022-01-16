@@ -29,6 +29,7 @@ export default function AddCounselor() {
     }
     console.log(formData);
     Axios.post(process.env.REACT_APP_BACKEND_API + "/insertCounselor", formData);
+    window.location.reload(false);
     e.preventDefault();
   };
 
